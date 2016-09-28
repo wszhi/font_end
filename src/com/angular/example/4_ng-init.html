@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+
+    <title>angular</title>
+
+    <script type="text/javascript" src="http://s.zys.me/js/jq/jquery.js"></script>
+    <script type="text/javascript" src="http://s.zys.me/js/ng/angular.js"></script>
+
+</head>
+<body>
+<b>使用ng-init初始化数组,并且用ng-repeat遍历显示</b>
+<div ng-controller="TestCtrl" ng-init="a=[1,2,3,4];">
+    <ul ng-repeat="member in a">
+        <li>{{ member }}</li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    angular.module('app', [], angular.noop)
+            .controller('TestCtrl', function ($scope) {
+            });
+    angular.bootstrap(document.documentElement, ['app']);
+</script>
+
+</body>
+</html>
+
+
+<!--这个指令可以在模板中直接赋值，它作用于 angular.bootstrap 之前，并且，定义的变量与 $scope 作用域无关。-->

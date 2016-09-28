@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+
+    <title>angular</title>
+
+    <script type="text/javascript" src="http://s.zys.me/js/jq/jquery.js"></script>
+    <script type="text/javascript" src="http://s.zys.me/js/ng/angular.js"></script>
+
+</head>
+<body>
+<div ng-controller="TestCtrl">
+    <b>用ng-repeat遍历一个数组</b>
+    <ul ng-repeat="member in obj_list">
+        <li>{{ member }}</li>
+    </ul>
+
+    <label>_________________________________________</label><br>
+    <b>用ng-repeat遍历一个数组中的值,并且显示在数组中的位置</b>
+    <ul ng-repeat="member in obj_list2">
+        <li>{{ $index }},{{ $first == true? "first" : "not first" }}, {{ member.name }}</li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    angular.module('app', [], angular.noop)
+            .controller('TestCtrl', function ($scope) {
+                $scope.obj_list = [1, 2, 3, 4];
+                $scope.obj_list2 = [{name: 'A'}, {name: 'B'}, {name: 'C'}];
+            });
+    angular.bootstrap(document.documentElement, ['app']);
+</script>
+
+</body>
+</html>
+
+
+<!--$index 当前索引-->
+<!--$first 是否为头元素-->
+<!--$middle 是否为非头非尾元素-->
+<!--$last 是否为尾元素-->
