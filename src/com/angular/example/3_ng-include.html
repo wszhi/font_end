@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+
+    <title>ng-include 内容</title>
+
+    <script type="text/javascript" src="http://s.zys.me/js/jq/jquery.js"></script>
+    <script type="text/javascript" src="http://s.zys.me/js/ng/angular.js"></script>
+
+</head>
+<body>
+
+<b>使用ng-include src 引用外部文件</b>
+<div ng-include src="'base_string.html'">
+</div>
+<label>____________________________</label><br>
+
+<b>使用ng-include引用外部文件</b>
+<div ng-include="'base_string.html'">
+</div>
+<label>____________________________</label><br>
+
+<b>使用 script 标签定义的“内部文件”</b>
+<script type="text/ng-template" id="tpl1">
+    here, {{ 1 + 1 }}
+</script>
+<div ng-include src="'tpl1'"></div>
+<label>____________________________</label><br>
+
+<b>使用 script 标签定义的“内部文件” 配合变量使用</b>
+<script type="text/ng-template" id="tpl">
+    here, {{ 1 + 1 }}
+</script>
+<a ng-click="v='tpl'">Load</a>
+<div ng-include src="v"></div>
+
+<script type="text/javascript">
+    angular.module('app', [], angular.noop)
+            .controller('TestCtrl', function ($scope) {
+            });
+    angular.bootstrap(document.documentElement, ['app']);
+</script>
+</body>
+
+</html>
+
+
+<!--src 中的字符串会作为表达式处理（可以是 $scope 中的变量），所以，直接写名字的话需要使用引号。-->
