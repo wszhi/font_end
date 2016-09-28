@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;/*Use the transition-duration property to determine the speed of the "hover" effect*/
+            cursor: pointer;
+        }
+
+        .button1 {
+            background-color: white;
+            color: black;
+            border: 2px solid #4CAF50;
+        }
+
+        .button1:hover {
+            background-color: #4CAF50;/*Blue #008CBA Red #f44336  Gray #e7e7e7  Black#555555*/
+            color: white;
+        }
+
+        .button7:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+
+        .disabled {
+            opacity: 0.6;/*Use the opacity property to add transparency透明 to a button*/
+            cursor: not-allowed;/*显示"no parking sign"*/
+        }
+
+        .button8 span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button8 span:after {
+            content: '»';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button8:hover span {
+            padding-right: 25px;
+        }
+
+        .button8:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+        .button9 {
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .button9:after {
+            content: "";
+            background: #f1f1f1;
+            display: block;
+            position: absolute;
+            padding-top: 300%;
+            padding-left: 350%;
+            margin-left: -20px !important;
+            margin-top: -120%;
+            opacity: 0;
+            transition: all 0.8s;
+        }
+
+        .button9:active:after {
+            padding: 0;
+            margin: 0;
+            opacity: 1;
+            transition: 0s;
+        }
+
+        .button10{
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+        }
+        .button10:hover {background-color: #3e8e41}
+
+        .button10:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+    </style>
+</head>
+<body>
+
+<h2>Different Buttons</h2>
+
+<button class="button button1">Green</button><br>
+
+<button class="button button7">Shadow on Hover</button>
+
+<button class="button disabled">Disabled Button</button>
+
+<button class="button button8" style="vertical-align:middle"><span>Hover </span></button>
+
+<button class=" button button9">Ripple Effect</button>
+<button class=" button button10">Pressed Effect</button>
+</body>
+</html>
+
