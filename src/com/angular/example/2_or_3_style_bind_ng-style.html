@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <title>style 改变 直接响应</title>
+
+    <script type="text/javascript" src="http://s.zys.me/js/jq/jquery.js"></script>
+    <script type="text/javascript" src="http://s.zys.me/js/ng/angular.js"></script>
+
+</head>
+<body>
+<b>用ng-style来设置style</b>
+<div ng-style="{width: 100 + 'px', height: 100 + 'px', backgroundColor: 'red'}">
+</div>
+
+<b>根据input值修改style中的宽度,用ng-style绑定</b>
+<div ng-controller="TestCtrl">
+    <div style="height: 10px; background-color: red" ng-style="styles">
+    </div>
+    <input type="text" name="width" ng-model="styles.width" />
+</div>
+
+
+<script type="text/javascript">
+    angular.module('app', [], angular.noop)
+            .controller('TestCtrl', function($scope){
+                $scope.styles = {width: 100 + 'px'};
+            });
+    angular.bootstrap(document.documentElement, ['app']);
+</script>
+
+
+</body>
+</html>
