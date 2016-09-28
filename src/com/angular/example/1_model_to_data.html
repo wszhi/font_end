@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <title>angular</title>
+
+    <script type="text/javascript" src="http://s.zys.me/js/jq/jquery.js"></script>
+    <script type="text/javascript" src="http://s.zys.me/js/ng/angular.js"></script>
+
+</head>
+<body>
+<input type="text" id="test" ng-controller="TestCtrl" ng-model="a" />
+
+<script type="text/javascript">
+    angular.module('app', [], angular.noop)
+            .controller('TestCtrl', function($scope){
+                $scope.a = '123';
+            });
+    angular.bootstrap(document.documentElement, ['app']);
+</script>
+</body>
+</html>
+
+
+
+<!--实际上， ng-model 是把两个方向的绑定都做了。它不光显示出变量的值，也把显示上的数值变化反映给了变量-->
