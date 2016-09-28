@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body div{
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            background-color: antiquewhite;
+        }
+        .box_shadow_set{
+            box-shadow: 15px 15px 5px rgba(255,15,255,0.5);
+        }
+        .box_shadow2_set{
+            box-shadow: 5px 5px 25px rgba(0,0,255,0.5) inset;
+        }
+
+        /*background:transparent; 等价 background:rgba(0,0,0,0);*/
+        /*color: transparent; 等价 color:rgba(0,0,0,0);*/
+    </style>
+</head>
+<body>
+<div class="box_shadow_set">box shadow</div>
+<br>
+<div class="box_shadow2_set">box shadow inset</div>
+</body>
+</html>
