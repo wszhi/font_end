@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body div{
+            width:500px;
+            height: 100px;
+            text-align: center;
+            background-color: antiquewhite;
+        }
+        img{
+            height: 160px;
+            width: 160px;
+            /*background: #F00;*/
+            background: url("http://pic.58pic.com/58pic/14/80/79/02q58PICWNG_1024.jpg");
+            -moz-mask-image: url("http://js.alixixi.com/demo/648/648.jpg");
+            -moz-mask-position:50% 50%;
+            -moz-mask-repeat:no-repeat;
+        }
+        .color_div{
+            border:2px solid #FA0;
+            background:-webkit-linear-gradient(left,#f00,#ff0 25%,#0ff 55%,#00f 70%,#f00);     /*横向渐变*/
+            /*background:-webkit-gradient-gradient(left,#f00,#ff0 25%,#0ff 55%,#00f 70%,#f00); !*纵向渐变*!*/
+            -webkit-background-clip:text;
+            /*只有webkit内核支持text的剪切模式*/
+            color:transparent;
+        }
+        .color_div2{
+            background-image:-webkit-gradient(linear,0% 0%, 100% 0%, from(#fff800), to(#f60),color-stop(20%,#fff));
+        }
+    </style>
+</head>
+<body>
+
+<img src=""/>不工作<br>
+
+<div class="color_div"><br>
+<div class="color_div2"></div>
+</div>
+</body>
+</html>
+
+
+<!--参考http://www.rainleaves.com/html/1214.html-->
