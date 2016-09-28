@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+
+    <title>angular</title>
+
+    <script type="text/javascript" src="http://s.zys.me/js/jq/jquery.js"></script>
+    <script type="text/javascript" src="http://s.zys.me/js/ng/angular.js"></script>
+
+</head>
+<body>
+<div ng-controller="TestCtrl">
+    <b>使用ng-src</b><br>
+    <img ng-src="{{ 'http://sdtimes.com/wp-content/uploads/2016/09/0' + '915.sdt-angular.png' }}"/><br>
+
+    <b>使用ng-href</b></a>
+    <a ng-href="{{ '#' + '123' }}">here</a>
+</div>
+
+<script type="text/javascript">
+    angular.module('app', [], angular.noop)
+            .controller('TestCtrl', function ($scope) {
+            });
+    angular.bootstrap(document.documentElement, ['app']);
+</script>
+
+</body>
+</html>
+
+
+<!--ng-src src属性-->
+<!--ng-href href属性-->
+<!--ng-checked 选中状态-->
+<!--ng-selected 被选择状态-->
+<!--ng-disabled 禁用状态-->
+<!--ng-multiple 多选状态-->
+<!--ng-readonly 只读状态-->
+<!--注意： 上面的这些只是单向绑定，即只是从数据到展示，不能反作用于数据。要双向绑定，还是要使用 ng-model 。-->
