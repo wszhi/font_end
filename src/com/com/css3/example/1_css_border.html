@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body div{
+            width: 300px;
+            height: 300px;
+            border: 30px solid;
+        }
+        .border_color_set{
+            border-color: aqua aquamarine blanchedalmond greenyellow;/*两个(上下,左右),三个(上,左右,下),四个(上,右,下,左)*/
+            /*border-top-colors  border-right-colors  border-bottom-colors  border-left-colors*/
+        }
+        img{
+            height: 300px;
+            width: 300px;
+        }
+        .border_image_set{
+            /*border-image: url('border-image.png') 30 30 repeated;简写形式*/
+            border-image: url('http://pic.58pic.com/58pic/14/79/90/00B58PICqTa_1024.jpg') round;
+            border-image-slice:30 30;
+            text-align: center;
+        }
+        /*stretch 拉伸方式来填充边框背景图 |*/
+        /*repeat 平铺 图片碰到边界时超出截断 |*/
+        /*round 平铺，图片会工具边框的尺寸动态调整图片大小直至刚 好铺满整个边框*/
+        .border_radius_set{
+            border-radius: 180px;/* 300(宽度)/2+30(边框) = 180 才是正圆*/
+            /*border-radius数值为合模型的一半就变成圆 ，记住：不是相对于合模型的width（如：965x1611），而是整个框才是*/
+
+            border-radius: 50%/30%;/*前面的50%是水平的,50%可以变成一个圆,30%是垂直的*/
+            /*border-radius: 1-4 length | % / 1*/
+            border-radius: 30px 20px 100px 50px/200px 40px 20px 100px;
+
+        /*'/'前面表示水平方向，后面表示垂直方向。每个方向都可以用1~4个值，缩写的规则遵循“左上开始，*/
+        /*顺时针旋转/ 只能写一个*/
+        }
+
+    </style>
+</head>
+<body>
+<div class="border_color_set">test</div>
+<img src="http://pic.58pic.com/58pic/14/79/90/00B58PICqTa_1024.jpg"/>
+<div class="border_image_set">test</div>
+<div class="border_radius_set"></div>
+
+</body>
+</html>
+
+
+
+
+<!--Mozilla 内核   css前缀-moz;-->
+<!--WebKit  内核   css前缀-webkit ;（谷歌已换用blink内核）-->
+<!--Opera   内核   css前缀 -o ;    （欧朋已换用blink内核）-->
+<!--Trident 内核   css前缀 -ms ; -->
