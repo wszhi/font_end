@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body .animation1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            -webkit-animation-name: example; /* Chrome, Safari, Opera */
+            -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
+            -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+            animation-name: example;
+            animation-duration: 4s;/*运行时间*/
+            animation-iteration-count: infinite;/*值为数字,运行几次,值为infinite则无限循环*/
+
+        }
+
+        /* Chrome, Safari, Opera */
+        /*@-webkit-keyframes example*/
+        /* Standard syntax */
+        @keyframes example {
+            0%   {background-color:red; left:0px; top:0px;}
+            25%  {background-color:yellow; left:200px; top:0px;}
+            50%  {background-color:blue; left:200px; top:200px;}
+            75%  {background-color:green; left:0px; top:200px;}
+            100% {background-color:red; left:0px; top:0px;}
+        }
+
+        .animation2{
+            width:100px;
+            height:100px;
+            background:red;
+            position:relative;
+            animation-name:example;
+            animation-duration:4s;
+            animation-timing-function:linear;
+            animation-delay:2s;/*延迟2秒*/
+            animation-iteration-count:infinite;/*循环*/
+            animation-direction:alternate;
+            animation-play-state:running;
+
+            /*animation: example 5s linear 2s infinite alternate; 简写,一模一样的效果*/
+        }
+
+    </style>
+</head>
+<body>
+
+<p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
+
+<div class="animation1"></div>
+
+<div class="animation2"></div>
+
+</body>
+</html>
+
+<!--参考http://www.w3schools.com/css/css3_animations.asp-->
+
+<!--animation: example 5s;  /*把 "myfirst" 动画捆绑到 div 元素，时长：5 秒：*/-->
+<!--请用百分比来规定变化发生的时间，或用关键词 "from" 和 "to"，等同于 0% 和 100%。-->
+<!--0% 是动画的开始，100% 是动画的完成。-->
+<!--为了得到最佳的浏览器支持，您应该始终定义 0% 和 100% 选择器。-->
+
+
+
+<!--
+@keyframes	规定动画。
+animation	所有动画属性的简写属性，除了 animation-play-state 属性。
+animation-name	规定 @keyframes 动画的名称。
+animation-duration	规定动画完成一个周期所花费的秒或毫秒。默认是 0。
+animation-timing-function	规定动画的速度曲线。默认是 "ease"。
+animation-delay	规定动画何时开始。默认是 0。
+animation-iteration-count	规定动画被播放的次数。默认是 1。
+animation-direction	规定动画是否在下一周期逆向地播放。默认是 "normal",逆向alternate。
+animation-play-state	规定动画是否正在运行或暂停。默认是 "running",暂停时pause。
+animation-fill-mode	规定对象动画时间之外的状态。-->
+
+
+
+<!--
+transition  animation 不同点
+1、animation多两个参数，循环和动画的方式
+2、transition不能自行触发，通过hover等动作或结合JS进行触发。anmiation可以自行运行。
+3、transition可控性较弱，只能指定起始状态和结束状态，而animation可以定义多个关键帧。
+4、动画在运行结束之后，需要回到初始状态
+5、transition的作用，可以用一句话来概括，‘平滑’改变CSS样式-->
