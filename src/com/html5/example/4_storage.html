@@ -14,11 +14,14 @@
         localStorage.pagecount = 1;
     }
     document.write("Visits: " + localStorage.pagecount + " time(s).");
+    function deleteLocalStorage() {
+        localStorage.removeItem("pagecount");
+    }
 </script>
 
 <p>localStorage 刷新页面会看到计数器在增长。</p>
 <p>请关闭浏览器窗口，然后再试一次，计数器会继续计数。</p>
-
+<button onclick="deleteLocalStorage()">重置</button>
 
 <script type="text/javascript">
     if (sessionStorage.pagecount) {
