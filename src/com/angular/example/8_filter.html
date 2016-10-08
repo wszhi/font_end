@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular</title>
+    <script type="text/javascript" src="http://s.zys.me/js/jq/jquery.js"></script>
+    <script type="text/javascript" src="http://s.zys.me/js/ng/angular.js"></script>
+    <style>
+        body div {
+            padding: 20px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body ng-app="app" ng-controller="TestCtrl">
+
+<div>
+    <h3>OrderBy</h3>
+    根据age正排序<br>
+    {{ friends | orderBy: 'age' }} <br>
+    根据age倒排序<br>
+    {{ friends | orderBy: '-age' }} <br>
+    根据age正排序,取前2个<br>
+    {{ friends | orderBy: '-age' | limitTo: 2 }} <br>
+    根据age倒排序,name正排序<br>
+    {{ friends | orderBy: ['-age', 'name'] }} <br>
+</div>
+<div>
+    根据age倒排序,name正排序,用np-repeat遍历以表格显示<br>
+    <table class="friends">
+        <tr>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Age</th>
+        </tr>
+        <tr ng-repeat="friend in friends | orderBy:['-age', 'name']">
+            <td>{{friend.name}}</td>
+            <td>{{friend.phone}}</td>
+            <td>{{friend.age}}</td>
+        </tr>
+    </table>
+
+</div>
+<div>
+    <h3>Filter</h3>
+    {{ friends | filter: 'J' }} <br/>
+    {{ friends | filter: '!J' }} <br/>
+</div>
+<script type="text/javascript">
+    angular.module('app', [])
+            .controller('TestCtrl', function ($scope) {
+                $scope.friends = [
+                    {name: 'John', phone: '555-1212', age: 10},
+                    {name: 'Mike', phone: '555-9876', age: 19},
+                    {name: 'Mary', phone: '555-4321', age: 19},
+                    {name: 'Adam', phone: '555-5678', age: 35},
+                    {name: 'Julie', phone: '555-8765', age: 29}
+                ];
+            });
+</script>
+</body>
+</html>
