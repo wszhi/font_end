@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>angular</title>
+    <script type="text/javascript" src="http://s.zys.me/js/jq/jquery.js"></script>
+    <script type="text/javascript" src="http://s.zys.me/js/ng/angular.js"></script>
+    <style>
+        form div {
+            padding: 20px;
+            border: 1px solid black;
+        }
+
+        input.ng-invalid {
+            border: 1px solid red;
+        }
+
+        input.ng-valid {
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+
+<form name="test_form" ng-controller="TestCtrl">
+    <div>输入长度5-15的起始为abc的内容:
+        <input type="text" name="a" required ng-model="a" required ng-minlength=5 ng-maxlength=15 ng-pattern="/abc/"/>
+        <span ng-click="see()"> valid值:{{ test_form.$valid }}</span>
+    </div>
+    <div>checkbox选中的值为AA,未选中的值为BB,默认选中状态:
+        <input type="checkbox" name="checkbox" ng-model="checkbox_value" ng-true-value="AA" ng-false-value="BB"/>
+        <span>{{ checkbox_value }}</span>
+    </div>
+    <div>
+        <input type="radio" name="radio_test" ng-model="radio_test" value="AA"/>AA
+        <input type="radio" name="radio_test" ng-model="radio_test" value="BB"/>BB<br>
+        radio选中的值为:<span>{{ radio_test }}</span>
+    </div>
+    <div>textarea元素,可拉伸:<br>
+        <textarea></textarea>
+    </div>
+    <div ng-init="o1=[0,1,2,3]; a=o[1];">
+        参数是数组<br>
+        <select ng-model="select_test" ng-options="x for x in o1" ng-change="show()">
+            <option value="">可以加这个空值</option>
+        </select>select选中的值为: {{ select_test }}
+    </div>
+    <div ng-init="o2=[{name: 'AA'}, {name: 'BB'}]; select_test2=o2[1];">
+        参数是对象数组<br>
+        <select ng-model="select_test2" ng-options="x.name for x in o2">
+        </select>select选中的值为: {{ select_test2 }}
+    </div>
+    <div ng-init="o3=[{name: 'AA', v: '00'},
+                    {name: 'BB', v: '11'}]; select_test3=o3[1].v;">
+        参数是对象数组<br>
+        <select ng-model="select_test3" ng-options="x.v as x.name for x in o3">
+        </select>select选中的值为: {{ select_test3 }}
+    </div>
+    <div ng-init="o4=[{name: 'AA', g: '00'},
+                  {name: 'BB', g: '11'},
+                  {name: 'CC', g: '00'}]; select_test4=o4[1];">
+        参数是对象数组<br>
+        <select ng-model="select_test4" ng-options="x.name group by x.g for x in o4">
+        </select>select选中的值为: name值是{{ select_test4.name }};value是{{ select_test4.g }}
+    </div>
+
+    <div ng-init="o5=[{name: 'AA', g: '00', v: '='},
+            {name: 'BB', g: '11', v: '+'},
+            {name: 'CC', g: '00', v: '!'}]; select_test5=o5[1].v;">
+        参数是对象数组<br>
+        <select ng-model="select_test5" ng-options="x.v as x.name group by x.g for x in o5">
+        </select>select选中的值为: {{ select_test5 }}
+    </div>
+
+    <div ng-init="o6={a: {name: 'AA', v: '00', g: '=='},
+                  b: {name: 'BB', v: '11', g: '=='}}; select_test6=o6.a.v;">
+        参数是对象<br>
+        显示对象的值里的V的值<br>
+        <select ng-model="select_test6" ng-options="v.v as v.name group by v.g for (k, v) in o6">
+        </select>select选中的值为: {{ select_test6 }}、
+        显示对象的名字<br>
+        <select ng-model="select_test7" ng-options="k for (k, v) in o6">
+        </select>select选中的值为: {{ select_test7 }}
+    </div>
+
+</form>
+<script type="text/javascript">
+    angular.module('app', [], angular.noop)
+            .controller('TestCtrl', function ($scope) {
+                $scope.see = function () {
+                    console.log($scope.test_form);
+                    console.log($scope.test_form.a);//a为name的值
+                };
+
+                $scope.checkbox_value = 'AA';//controller中的初始化值会关系到控件状态（双向绑定）
+
+                $scope.show = function () {
+                    console.log($scope.select_test);
+                }
+            });
+    angular.bootstrap(document.documentElement, ['app']);
+</script>
+</body>
+</html>
+
