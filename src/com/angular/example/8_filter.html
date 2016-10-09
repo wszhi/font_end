@@ -43,8 +43,8 @@
 </div>
 <div>
     <h3>Filter</h3>
-    {{ friends | filter: 'J' }} <br/>
-    {{ friends | filter: '!J' }} <br/>
+    人名里有J的:{{ friends | filter: 'J' }} <br/>
+    人名里没有J的:{{ friends | filter: '!J' }} <br/>
 </div>
 <script type="text/javascript">
     angular.module('app', [])

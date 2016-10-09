@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular</title>
+    <script type="text/javascript" src="http://s.zys.me/js/jq/jquery.js"></script>
+    <script type="text/javascript" src="http://s.zys.me/js/ng/angular.js"></script>
+    <style>
+        .friends {
+            border-collapse: collapse;
+        }
+
+        .friends td, .friends th {
+            border-left: 1px solid;
+            padding: 5px 10px;
+        }
+
+    </style>
+</head>
+<body ng-app="filterByExample" ng-controller="ExampleController">
+<label>Search: <input ng-model="searchText"></label>
+<table id="searchTextResults">
+    <tr>
+        <th>Name</th>
+        <th>Phone</th>
+    </tr>
+    <tr ng-repeat="friend in friends | filter:searchText">
+        <td>{{friend.name}}</td>
+        <td>{{friend.phone}}</td>
+    </tr>
+</table>
+<hr>
+<label>Any: <input ng-model="search.$"></label> <br>
+<label>Name only <input ng-model="search.name"></label><br>
+<label>Phone only <input ng-model="search.phone"></label><br>
+<label>Equality <input type="checkbox" ng-model="strict"></label><br>
+<table id="searchObjResults">
+    <tr>
+        <th>Name</th>
+        <th>Phone</th>
+    </tr>
+    <tr ng-repeat="friendObj in friends | filter:search:strict">
+        <td>{{friendObj.name}}</td>
+        <td>{{friendObj.phone}}</td>
+    </tr>
+</table>
+<script type="text/javascript">
+    angular.module('filterByExample', [])
+            .controller('ExampleController', ['$scope', 'orderByFilter', function ($scope, orderBy) {
+                $scope.friends = [
+                    {name: 'John', phone: '555-1212', age: 10},
+                    {name: 'Mary', phone: '555-9876', age: 19},
+                    {name: 'Mike', phone: '555-4321', age: 21},
+                    {name: 'Adam', phone: '555-5678', age: 35},
+                    {name: 'Julie', phone: '555-8765', age: 29}
+                ];
+            }]);
+</script>
+</body>
+</html>
